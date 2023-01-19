@@ -1,0 +1,46 @@
+// Calendar
+.cal {
+    background-color: $base01;
+    font-size: 18px;
+    font-weight: normal;
+  
+  .cal-in {
+      padding: 0px 10px 0px 10px;
+      color: $base04;
+  
+  .cal {
+       &.highlight {
+            padding: 20px;
+        }
+  
+        padding: 5px 5px 5px 5px;
+        margin-left: 10px;
+      }
+    }
+  }
+  
+  calender {
+      color: $base01;
+  }
+  calendar:selected {
+      color: $base07;
+      font-weight: bold;
+  }
+  
+  calendar.header {
+  color: $base05;
+  font-weight: bold;
+  }
+  
+  calendar.button {
+  color: $base05;
+  }
+  
+  calendar.highlight {
+  color: $base05;
+  font-weight: bold;
+  }
+  
+  calendar:indeterminate {
+  color: $base03;
+  }

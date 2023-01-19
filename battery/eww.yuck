@@ -1,0 +1,13 @@
+(defwidget battery []
+  (box :space-evenly false
+    :valign "center"
+    :height 26
+    (label :class "bg left"
+            :text "${EWW_BATTERY.BAT0.capacity}% ")
+    (label :class "bg icon right"
+            :text "${EWW_BATTERY.BAT0.status != 'Discharging' ? '' :
+              EWW_BATTERY.BAT0.capacity > 95 ? '' :
+                EWW_BATTERY.BAT0.capacity >= 75 ? '' :
+                  EWW_BATTERY.BAT0.capacity >= 50 ? '' :
+                    EWW_BATTERY.BAT0.capacity >= 25 ? '' :
+                      EWW_BATTERY.BAT0.capacity >= 10 ? '' : ''}")))

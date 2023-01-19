@@ -1,0 +1,14 @@
+(deflisten vol "~/.config/eww/scripts/volume.sh")
+(defwidget volume []
+  (eventbox 
+    :onscroll "pactl set-sink-volume @DEFAULT_SINK@ `echo {} | sed 's/up/+/' | sed 's/down/-/'`1%"
+    :onclick "pavucontrol" ;you may need to check this bug to get this to work: https://github.com/elkowar/eww/issues/626
+    (box :space-evenly false
+      (label :class {vol['sink'] == 'muted' ? "bg left muted" : "bg left"}
+            :valign "center"
+            :height 26
+            :text {vol["sink"] == "muted" ? " " : '${vol["sink"]}  '})
+      (label :class {vol['source'] == 'muted' ? "bg right muted" : "bg right"}
+            :valign "center"
+            :height 26
+            :text {vol["source"] == "muted" ? ' ' : ' ${vol["source"]} '}))))

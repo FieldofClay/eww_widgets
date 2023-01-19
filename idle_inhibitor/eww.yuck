@@ -1,0 +1,6 @@
+(defvar idle_state "")
+(defwidget idle_inhib []
+  (button :class "idle"
+    :height 26
+    :onclick "~/.config/eww/scripts/idle_inhib.sh"
+    "${idle_state}"))

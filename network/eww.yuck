@@ -1,0 +1,11 @@
+(deflisten cons "~/.config/eww/scripts/network.sh")
+(defpoll cons_signal :interval "30s"
+  "nmcli -f IN-USE,SIGNAL,SSID device wifi | awk '/^\*/{if (NR!=1) {print $2}}'")
+(defpoll cons_ip :interval "30s"
+  "CONN=`nmcli -t con show --active | head -n 1 | cut -d : -f 1`; nmcli -g IP4.ADDRESS con show \"$CONN\"")
+(defwidget network []
+  (label :class "bg"
+          :valign "center"
+          :height 26
+          :tooltip "${cons_ip}"
+          :text {cons_signal == "" ? "${cons}" : "${cons} (${cons_signal}%)" }))

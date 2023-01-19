@@ -1,0 +1,78 @@
+//common scss to include across all widgets
+
+* {
+all: unset; //Unsets everything so you can style everything from scratch
+    //font-family: Inter Nerd Font;
+    // font-family:Space Mono;
+}
+
+//sets a base16 theme.
+//copy/paste theme from https://github.com/samme/base16-styles/tree/master/scss
+//or create your own. This is default-dark:
+$base00: #181818;
+$base01: #282828;
+$base02: #383838;
+$base03: #585858;
+$base04: #b8b8b8;
+$base05: #d8d8d8;
+$base06: #e8e8e8;
+$base07: #f8f8f8;
+$base08: #ab4642;
+$base09: #dc9656;
+$base0A: #f7ca88;
+$base0B: #a1b56c;
+$base0C: #86c1b9;
+$base0D: #7cafc2;
+$base0E: #ba8baf;
+$base0F: #a16946;
+
+
+//scss used across most of the widgets
+label {
+	margin-right: 2px;
+	margin-left: 2px;
+	border-radius: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+button {
+	background-color: $base02;
+	margin: 5px;
+	border-radius: 5%;
+}
+
+button:hover {
+	background-color: $base03;
+}
+
+tooltip {
+	color: $base04;
+	background-color: $base02;
+	border-color: $base03;
+	border-radius: 5%;
+	border-style: solid;
+	border-width: 2px;
+}
+
+.bg {
+	background-color: $base02;
+}
+
+.left {
+	margin-right: 0px;
+	border-top-right-radius: 0%;
+	border-bottom-right-radius: 0%;
+	padding-right: 0px;
+}
+
+.right {
+	margin-left: 0px;
+	border-top-left-radius: 0%;
+	border-bottom-left-radius: 0%;
+	padding-left: 0px;
+}
+
+.icon {
+	font-size: 20px;
+}

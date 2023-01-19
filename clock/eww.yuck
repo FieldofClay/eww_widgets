@@ -1,0 +1,32 @@
+;basic clock, edit date command to change time format
+(defpoll time :interval "10s"
+  "date '+%d %b %H:%M'")
+
+;opens/closes calendar on click
+(defwidget clock []
+  (eventbox :onclick "eww `eww windows | grep calendar | sed -E \"s/^.+calendar/close/;s/^calendar/open/\"` calendar"
+    (label :class "clock"
+       :text time)))
+
+
+(defpoll calendar_day :interval "6h" "date '+%d'")
+(defpoll calendar_year :interval "20h" "date '+%Y'")
+(defpoll clock_date :interval "10m" "date '+%d/%m'")
+
+(defwidget cal []
+  (box :class "cal" :orientation "v"
+  (box :class "cal-in"
+  (calendar :class "cal" 
+    :day calendar_day 
+    :year calendar_year))))
+
+;calendar window, open/closed by clicking the clock or by moving mouse out of window
+(defwindow calendar
+  :geometry (geometry :x "10px" 
+                      :y "10px" 
+                      :monitor 0
+                      :anchor "top right"
+                      :width "270px" 
+                      :height "60px")
+  (eventbox :onhoverlost "${EWW_CMD} close calendar" 
+    (cal)))

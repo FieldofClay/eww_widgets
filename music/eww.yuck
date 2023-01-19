@@ -1,0 +1,10 @@
+(defwidget music []
+    (eventbox :class "music"
+        :orientation "h"
+        :space-evenly false
+        :halign "center"
+        :onclick "playerctl play-pause"
+      "${music_details}"))
+  
+  (deflisten music_details :initial ""
+    "playerctl --follow metadata --format '--{{status}}--{{ artist }} - {{ title }}'  | sed -u 's/--Paused--/🎵   /' | sed -u 's/--Playing--/🎵 /'")

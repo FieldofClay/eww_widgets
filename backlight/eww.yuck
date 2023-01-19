@@ -1,0 +1,13 @@
+(deflisten brightness "~/.config/eww/scripts/brightness.sh")
+(defwidget backlight []
+  (eventbox
+    :onscroll "brightnessctl set 1%`echo {} | sed 's/up/+/' | sed 's/down/-/'`"
+    (box :space-evenly false
+      :valign "center"
+      (label :class "bg left"
+        :height 26
+        :text "${brightness} ")
+      (label :class "bg right icon"
+        :height 26
+        :text {brightness <34 ? "" :
+          brightness < 67 ? "" : ""}))))
